@@ -1,0 +1,15 @@
+{
+  "label": "V5: No Staged Training",
+  "valid": 50,
+  "total": 50,
+  "errors": 0,
+  "ade_mean": 7.743804592211394,
+  "ade_std": 9.06810524173493,
+  "fde_mean": 13.640885525396238,
+  "fde_std": 15.745781975050821,
+  "time_s": 427.68061089515686,
+  "train_time_min": 95.24994731744131,
+  "final_traj_loss": 0.6055435123741627,
+  "final_vis_loss": 6.323775,
+  "final_lang_loss": 2.3721375
+}

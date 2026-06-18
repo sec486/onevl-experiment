@@ -1,0 +1,15 @@
+models/
+model/*.safetensors
+model/*.pt
+navtrain_data/
+navsim_v1.1_all/
+training-data/*.pt
+ablation/results/*/checkpoint_*/
+output/
+archive/
+data/
+__pycache__/
+*.pyc
+.DS_Store
+navsim/
+onevl/

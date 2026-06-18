@@ -1,0 +1,58 @@
+[13:05:07] ============================================================
+[13:05:07]   Variant 2: AR CoT+Answer (explicit reasoning, no latent)
+[13:05:07] ============================================================
+[13:05:07]   Train: 1250, Eval: 50
+Loading weights:   0%|          | 0/626 [00:00<?, ?it/s]Loading weights:  49%|████▊     | 305/626 [00:00<00:00, 3046.52it/s]Loading weights: 100%|██████████| 626/626 [00:00<00:00, 3353.21it/s]
+The tied weights mapping and config for this model specifies to tie model.language_model.embed_tokens.weight to lm_head.weight, but both are present in the checkpoints with different values, so we will NOT tie them. You should update the config with `tie_word_embeddings=False` to silence this warning.
+/opt/onevl-env/lib/python3.10/site-packages/peft/tuners/tuners_utils.py:1348: UserWarning: Model has `tie_word_embeddings=True` and a tied layer is part of the adapter, but `ensure_weight_tying` is not set to True. This can lead to complications, for example when merging the adapter or converting your model to formats other than safetensors. Check the discussion here: https://github.com/huggingface/peft/issues/2777
+  warnings.warn(msg)
+[13:05:11] 
+Training 10 epochs (CoT+Answer, no latent)...
+/opt/onevl-env/lib/python3.10/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py:1160: UserWarning: No PYTORCH_KERNEL_CACHE_PATH or HOME environment variable set! This disables kernel caching. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1426.)
+  split_sizes = (image_grid_thw.prod(-1) // self.visual.spatial_merge_size**2).tolist()
+[13:11:44]   Epoch 1/10: loss=0.6915, samples=1250, errors=0
+[13:20:29]   Epoch 2/10: loss=0.6149, samples=1248, errors=2
+[13:29:14]   Epoch 3/10: loss=0.6061, samples=1250, errors=0
+[13:38:00]   Epoch 4/10: loss=0.6000, samples=1250, errors=0
+[13:46:46]   Epoch 5/10: loss=0.5949, samples=1250, errors=0
+[13:55:32]   Epoch 6/10: loss=0.5902, samples=1250, errors=0
+[14:04:18]   Epoch 7/10: loss=0.5854, samples=1250, errors=0
+[14:13:05]   Epoch 8/10: loss=0.5804, samples=1250, errors=0
+[14:21:50]   Epoch 9/10: loss=0.5750, samples=1250, errors=0
+[14:28:54]   Epoch 10/10: loss=0.5691, samples=1250, errors=0
+[14:28:55] 
+  Training done: 84.1 min
+[14:29:01]   Saved checkpoint: /opt/onevl-experiment/output/ablation/v2_ar_cot/checkpoint_final
+[14:29:01] 
+=== Evaluation ===
+[14:29:01] Evaluating: V2: AR CoT+Answer (50 samples)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[14:30:25]   [10/50] valid=10, ADE=4.533m
+[14:31:46]   [20/50] valid=20, ADE=8.076m
+[14:33:07]   [30/50] valid=30, ADE=7.866m
+[14:34:28]   [40/50] valid=40, ADE=6.714m
+[14:35:49]   [50/50] valid=50, ADE=6.761m
+[14:35:49]   → ADE=6.761±8.121m, FDE=11.627±13.845m, valid=50/50
+[14:35:49] 
+  DONE: ADE=6.761m, FDE=11.627m
+50] valid=10, ADE=5.363m
+[14:26:55]   [30/50] valid=25, ADE=8.242m
+[14:28:25]   [40/50] valid=35, ADE=7.026m
+[14:28:54]   Epoch 10/10: loss=0.5691, samples=1250, errors=0
+[14:28:55] 
+  Training done: 84.1 min
+[14:29:01] 
+=== Evaluation ===
+[14:29:01] Evaluating: V2: AR CoT+Answer (50 samples)
+[14:29:53]   [50/50] valid=45, ADE=7.418m
+[14:29:53]   → ADE=7.418±8.761m, FDE=13.030±15.212m, valid=45/50
+[14:29:53] 
+  DONE: ADE=7.418m, FDE=13.030m
+[14:30:25]   [10/50] valid=10, ADE=4.533m
+[14:31:46]   [20/50] valid=20, ADE=8.076m
+[14:33:07]   [30/50] valid=30, ADE=7.866m
+[14:34:28]   [40/50] valid=40, ADE=6.714m
+[14:35:49]   [50/50] valid=50, ADE=6.761m
+[14:35:49]   → ADE=6.761±8.121m, FDE=11.627±13.845m, valid=50/50
+[14:35:49] 
+  DONE: ADE=6.761m, FDE=11.627m

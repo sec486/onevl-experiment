@@ -1,0 +1,42 @@
+[15:56:30] ============================================================
+[15:56:30]   Variant 5: OneVL w/o Staged Training
+[15:56:30]   Direct joint training from start (10 epochs, NO DETACH)
+[15:56:30] ============================================================
+[15:56:30]   Train: 1250, Eval: 50
+Loading weights:   0%|          | 0/626 [00:00<?, ?it/s]Loading weights:  56%|█████▌    | 348/626 [00:00<00:00, 3475.64it/s]Loading weights: 100%|██████████| 626/626 [00:00<00:00, 4284.92it/s]
+The tied weights mapping and config for this model specifies to tie model.language_model.embed_tokens.weight to lm_head.weight, but both are present in the checkpoints with different values, so we will NOT tie them. You should update the config with `tie_word_embeddings=False` to silence this warning.
+/opt/onevl-env/lib/python3.10/site-packages/peft/tuners/tuners_utils.py:1348: UserWarning: Model has `tie_word_embeddings=True` and a tied layer is part of the adapter, but `ensure_weight_tying` is not set to True. This can lead to complications, for example when merging the adapter or converting your model to formats other than safetensors. Check the discussion here: https://github.com/huggingface/peft/issues/2777
+  warnings.warn(msg)
+[15:56:35] 
+Direct joint training (10 epochs, all trainable, NO DETACH)...
+/opt/onevl-env/lib/python3.10/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py:1160: UserWarning: No PYTORCH_KERNEL_CACHE_PATH or HOME environment variable set! This disables kernel caching. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1426.)
+  split_sizes = (image_grid_thw.prod(-1) // self.visual.spatial_merge_size**2).tolist()
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+[16:06:08]   Epoch 1/10: traj=0.7574, vis=9.26, lang=3.5331, errors=0
+[16:15:40]   Epoch 2/10: traj=0.6548, vis=7.56, lang=2.6330, errors=0
+[16:25:11]   Epoch 3/10: traj=0.6447, vis=7.03, lang=2.5050, errors=0
+[16:34:43]   Epoch 4/10: traj=0.6378, vis=6.74, lang=2.4287, errors=0
+[16:44:15]   Epoch 5/10: traj=0.6322, vis=6.54, lang=2.3891, errors=0
+[16:53:46]   Epoch 6/10: traj=0.6271, vis=6.44, lang=2.3782, errors=0
+[17:03:17]   Epoch 7/10: traj=0.6221, vis=6.39, lang=2.3741, errors=0
+[17:12:48]   Epoch 8/10: traj=0.6167, vis=6.36, lang=2.3733, errors=0
+[17:22:18]   Epoch 9/10: traj=0.6114, vis=6.34, lang=2.3725, errors=0
+[17:31:50]   Epoch 10/10: traj=0.6055, vis=6.32, lang=2.3721, errors=0
+[17:31:52]   Saved checkpoint: /opt/onevl-experiment/output/ablation/v5_no_staged/checkpoint_final
+[17:31:52] 
+  Training done: 95.2 min
+[17:31:52] 
+=== Evaluation ===
+[17:31:52] Evaluating: V5: No Staged Training (50 samples)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[17:33:18]   [10/50] valid=10, ADE=5.526m
+[17:34:43]   [20/50] valid=20, ADE=9.077m
+[17:36:09]   [30/50] valid=30, ADE=8.901m
+[17:37:34]   [40/50] valid=40, ADE=7.672m
+[17:38:59]   [50/50] valid=50, ADE=7.744m
+[17:38:59]   → ADE=7.744±9.068m, FDE=13.641±15.746m, valid=50/50
+[17:38:59] 
+  DONE: ADE=7.744m, FDE=13.641m
+41±15.746m, valid=50/50
+[17:38:59] 
+  DONE: ADE=7.744m, FDE=13.641m

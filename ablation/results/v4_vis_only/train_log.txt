@@ -1,0 +1,60 @@
+[07:49:21] ============================================================
+[07:49:21]   Variant 4: OneVL w/o Lang Decoder (vis only) [MEM-FIXED]
+[07:49:21]   4-stage: Preliminary -> S0 -> S1 -> S2
+[07:49:21] ============================================================
+[07:49:21]   Train: 1250, Eval: 50, Vis scenes: 250
+Loading weights:   0%|          | 0/626 [00:00<?, ?it/s]Loading weights:   9%|▉         | 59/626 [00:00<00:00, 579.64it/s]Loading weights:  22%|██▏       | 139/626 [00:00<00:00, 700.26it/s]Loading weights:  34%|███▎      | 210/626 [00:00<00:00, 657.20it/s]Loading weights:  46%|████▌     | 287/626 [00:00<00:00, 695.18it/s]Loading weights:  59%|█████▉    | 371/626 [00:00<00:00, 735.95it/s]Loading weights: 100%|██████████| 626/626 [00:00<00:00, 1054.89it/s]
+The tied weights mapping and config for this model specifies to tie model.language_model.embed_tokens.weight to lm_head.weight, but both are present in the checkpoints with different values, so we will NOT tie them. You should update the config with `tie_word_embeddings=False` to silence this warning.
+/opt/onevl-env/lib/python3.10/site-packages/peft/tuners/tuners_utils.py:1348: UserWarning: Model has `tie_word_embeddings=True` and a tied layer is part of the adapter, but `ensure_weight_tying` is not set to True. This can lead to complications, for example when merging the adapter or converting your model to formats other than safetensors. Check the discussion here: https://github.com/huggingface/peft/issues/2777
+  warnings.warn(msg)
+[07:50:02] 
+  PRELIMINARY (3 ep)
+[07:51:36]   PRE Epoch 1: vis=6.98, errors=0
+[07:53:09]   PRE Epoch 2: vis=4.54, errors=0
+[07:54:42]   PRE Epoch 3: vis=4.18, errors=0
+[07:54:42]   Saved checkpoint: /opt/onevl-experiment/output/ablation/v4_vis_only/checkpoint_preliminary
+[07:54:42]   Preliminary done: 4.7 min
+[07:54:42] 
+  STAGE 0 (5 ep)
+/opt/onevl-env/lib/python3.10/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py:1160: UserWarning: No PYTORCH_KERNEL_CACHE_PATH or HOME environment variable set! This disables kernel caching. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1426.)
+  split_sizes = (image_grid_thw.prod(-1) // self.visual.spatial_merge_size**2).tolist()
+[07:59:57]   S0 Epoch 1: traj=0.7164, errors=0
+[08:05:11]   S0 Epoch 2: traj=0.6523, errors=0
+[08:10:25]   S0 Epoch 3: traj=0.6432, errors=0
+[08:15:40]   S0 Epoch 4: traj=0.6366, errors=0
+[08:20:54]   S0 Epoch 5: traj=0.6308, errors=0
+[08:20:56]   Saved checkpoint: /opt/onevl-experiment/output/ablation/v4_vis_only/checkpoint_stage0
+[08:20:56]   Stage 0 done: 26.2 min
+[08:20:56] 
+  STAGE 1 (3 ep, DETACH)
+[08:25:11]   S1 Epoch 1: vis=4.07, errors=0
+[08:29:28]   S1 Epoch 2: vis=3.98, errors=0
+[08:33:44]   S1 Epoch 3: vis=3.94, errors=0
+[08:33:44]   Saved checkpoint: /opt/onevl-experiment/output/ablation/v4_vis_only/checkpoint_stage1
+[08:33:44]   Stage 1 done: 12.8 min
+[08:33:44] 
+  STAGE 2 (5 ep, NO DETACH, mem-optimized)
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+[08:45:13]   S2 Epoch 1: traj=0.6287, vis=3.92, samples=629, errors=622
+[08:56:40]   S2 Epoch 2: traj=0.6295, vis=3.92, samples=625, errors=625
+[09:08:07]   S2 Epoch 3: traj=0.6295, vis=3.92, samples=625, errors=625
+[09:19:33]   S2 Epoch 4: traj=0.6295, vis=3.92, samples=625, errors=625
+[09:31:00]   S2 Epoch 5: traj=0.6295, vis=3.92, samples=625, errors=625
+[09:31:02]   Saved checkpoint: /opt/onevl-experiment/output/ablation/v4_vis_only/checkpoint_stage2_final
+[09:31:02]   Stage 2 done: 57.3 min
+[09:31:02]   Total train time: 101.0 min
+[09:31:02] 
+=== Evaluation ===
+[09:31:02] Evaluating: V4: Vis Only (no lang dec) (50 samples)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[09:32:24]   [10/50] valid=10, ADE=6.056m
+[09:33:48]   [20/50] valid=20, ADE=9.652m
+[09:35:12]   [30/50] valid=30, ADE=9.655m
+[09:36:34]   [40/50] valid=40, ADE=8.339m
+[09:37:56]   [50/50] valid=50, ADE=8.583m
+[09:37:56]   → ADE=8.583±9.990m, FDE=15.341±17.574m, valid=50/50
+[09:37:56] 
+  DONE: ADE=8.583m, FDE=15.341m
+41±17.574m, valid=50/50
+[09:37:56] 
+  DONE: ADE=8.583m, FDE=15.341m

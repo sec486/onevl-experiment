@@ -1,0 +1,84 @@
+[14:36:46] ============================================================
+[14:36:46]   Variant 3: OneVL w/o Visual Decoder (lang only)
+[14:36:46]   3-stage: S0 (traj) → S1 (lang dec, detach) → S2 (joint)
+[14:36:46] ============================================================
+[14:36:46]   Train: 1250, Eval: 50
+Loading weights:   0%|          | 0/626 [00:00<?, ?it/s]Loading weights:  58%|█████▊    | 362/626 [00:00<00:00, 3591.91it/s]Loading weights: 100%|██████████| 626/626 [00:00<00:00, 3554.24it/s]
+The tied weights mapping and config for this model specifies to tie model.language_model.embed_tokens.weight to lm_head.weight, but both are present in the checkpoints with different values, so we will NOT tie them. You should update the config with `tie_word_embeddings=False` to silence this warning.
+/opt/onevl-env/lib/python3.10/site-packages/peft/tuners/tuners_utils.py:1348: UserWarning: Model has `tie_word_embeddings=True` and a tied layer is part of the adapter, but `ensure_weight_tying` is not set to True. This can lead to complications, for example when merging the adapter or converting your model to formats other than safetensors. Check the discussion here: https://github.com/huggingface/peft/issues/2777
+  warnings.warn(msg)
+[14:36:51] 
+============================================================
+[14:36:51]   STAGE 0: Trajectory Warmup (5 epochs)
+[14:36:51] ============================================================
+/opt/onevl-env/lib/python3.10/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py:1160: UserWarning: No PYTORCH_KERNEL_CACHE_PATH or HOME environment variable set! This disables kernel caching. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1426.)
+  split_sizes = (image_grid_thw.prod(-1) // self.visual.spatial_merge_size**2).tolist([14:44:02]   S0 Epoch 1/5: traj=0.7162, errors=0
+[14:47:51]   S0 Epoch 2/5: traj=0.7011, errors=1203
+[14:54:37]   S0 Epoch 3/5: traj=0.6545, errors=186
+[15:03:08]   S0 Epoch 4/5: traj=0.6440, errors=18
+[15:11:07]   S0 Epoch 5/5: traj=0.6372, errors=0
+[15:11:13]   Saved checkpoint: /opt/onevl-experiment/output/ablation/v3_lang_only/checkpoint_stage0
+[15:11:13]   Stage 0 done: 34.8 min
+[15:11:13] 
+============================================================
+[15:11:13]   STAGE 1: Language Decoder Warmup (3 epochs, DETACH)
+[15:11:13] ============================================================
+[15:15:51]   S1 Epoch 1/3: lang=2.8910, errors=0
+[15:19:29]   S1 Epoch 2/3: lang=1.6814, errors=0
+[15:22:02]   S1 Epoch 3/3: lang=1.3991, errors=1198
+[15:22:02]   Saved checkpoint: /opt/onevl-experiment/output/ablation/v3_lang_only/checkpoint_stage1
+[15:22:02]   Stage 1 done: 10.8 min
+[15:22:02] 
+============================================================
+[15:22:02]   STAGE 2: Joint Training (5 epochs, NO DETACH)
+[15:22:02] ============================================================
+[15:23:24]   S2 Epoch 1/5: traj=0.0000, lang=0.0000, errors=1250
+[15:25:13]   S2 Epoch 2/5: traj=0.0000, lang=0.0000, errors=1250
+[15:27:02]   S2 Epoch 3/5: traj=0.0000, lang=0.0000, errors=1250
+[15:28:51]   S2 Epoch 4/5: traj=0.0000, lang=0.0000, errors=1250
+[15:30:36]   S2 Epoch 5/5: traj=0.4976, lang=1.4023, errors=1249
+[15:30:43]   Saved checkpoint: /opt/onevl-experiment/output/ablation/v3_lang_only/checkpoint_stage2_final
+[15:30:43]   Stage 2 done: 8.7 min
+[15:30:43] 
+=== Evaluation ===
+[15:30:43] Evaluating: V3: Lang Only (no vis dec) (50 samples)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[15:32:07]   [10/50] valid=10, ADE=5.943m
+[15:33:30]   [20/50] valid=20, ADE=9.793m
+[15:34:53]   [30/50] valid=30, ADE=9.378m
+[15:36:16]   [40/50] valid=40, ADE=8.085m
+[15:37:40]   [50/50] valid=50, ADE=8.291m
+[15:37:40]   → ADE=8.291±9.775m, FDE=14.747±17.177m, valid=50/50
+[15:37:40] 
+  DONE: ADE=8.291m, FDE=14.747m
+=16.056m
+ lang=0.0000, errors=1250
+[15:23:02]   Stage 2 done: 6.4 min
+[15:23:02] 
+=== Evaluation ===
+[15:23:02] Evaluating: V3: Lang Only (no vis dec) (50 samples)
+[15:23:24]   S2 Epoch 1/5: traj=0.0000, lang=0.0000, errors=1250
+[15:24:31]   [10/50] valid=10, ADE=6.350m
+[15:25:13]   S2 Epoch 2/5: traj=0.0000, lang=0.0000, errors=1250
+[15:25:59]   [20/50] valid=20, ADE=10.307m
+[15:27:02]   S2 Epoch 3/5: traj=0.0000, lang=0.0000, errors=1250
+[15:27:27]   [30/50] valid=30, ADE=10.092m
+[15:28:51]   S2 Epoch 4/5: traj=0.0000, lang=0.0000, errors=1250
+[15:28:53]   [40/50] valid=40, ADE=8.701m
+[15:30:19]   [50/50] valid=50, ADE=8.937m
+[15:30:19]   → ADE=8.937±10.389m, FDE=16.056±18.376m, valid=50/50
+[15:30:19] 
+  DONE: ADE=8.937m, FDE=16.056m
+[15:30:36]   S2 Epoch 5/5: traj=0.4976, lang=1.4023, errors=1249
+[15:30:43]   Stage 2 done: 8.7 min
+[15:30:43] 
+=== Evaluation ===
+[15:30:43] Evaluating: V3: Lang Only (no vis dec) (50 samples)
+[15:32:07]   [10/50] valid=10, ADE=5.943m
+[15:33:30]   [20/50] valid=20, ADE=9.793m
+[15:34:53]   [30/50] valid=30, ADE=9.378m
+[15:36:16]   [40/50] valid=40, ADE=8.085m
+[15:37:40]   [50/50] valid=50, ADE=8.291m
+[15:37:40]   → ADE=8.291±9.775m, FDE=14.747±17.177m, valid=50/50
+[15:37:40] 
+  DONE: ADE=8.291m, FDE=14.747m

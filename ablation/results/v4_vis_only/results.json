@@ -1,0 +1,14 @@
+{
+  "label": "V4: Vis Only (no lang dec)",
+  "valid": 50,
+  "total": 50,
+  "errors": 0,
+  "ade_mean": 8.583447765132943,
+  "ade_std": 9.990495160589058,
+  "fde_mean": 15.34070637279057,
+  "fde_std": 17.574456162454155,
+  "time_s": 414.35770082473755,
+  "train_time_min": 107.91089980999628,
+  "final_traj_loss": 0.6294518778085708,
+  "final_vis_loss": 3.916
+}

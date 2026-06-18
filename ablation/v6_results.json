@@ -1,0 +1,1 @@
+{"label":"V6: OneVL Full","valid":50,"total":50,"errors":0,"ade_mean":7.63,"ade_std":8.95,"fde_mean":13.39,"fde_std":15.62,"time_s":420,"train_time_min":92.7,"final_traj_loss":0.608,"final_vis_loss":3.90,"final_lang_loss":1.43}

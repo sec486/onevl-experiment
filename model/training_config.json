@@ -1,0 +1,11 @@
+{
+  "max_samples": 1250,
+  "grad_accum": 8,
+  "lr": 2e-05,
+  "codebook_size": 32768,
+  "num_vis_queries": 64,
+  "lambda_vis": 0.5,
+  "lambda_lang": 0.5,
+  "stages": "Preliminary+S0+S1+S2",
+  "vis_tokens": "/opt/onevl-experiment/data/emu3_visual_tokens_expanded.pt"
+}
