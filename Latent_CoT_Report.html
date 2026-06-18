@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><style id="qw-theme">:root {
+  --color-bg: #121218;
+  --color-text: #e4e4ed;
+  --color-navbar-bg: #1a1a24;
+  --color-bg-chat-view: #121218;
+  --color-bg-secondary: #1a1a24;
+  --color-bg-tertiary: #1e1e2a;
+  --color-bg-hover: #2a2a38;
+  --color-surface: #1e1e2a;
+  --color-surface-hover: #2a2a38;
+  --color-surface-active: #353546;
+  --color-border: rgba(255, 255, 255, .12);
+  --color-border-light: rgba(255, 255, 255, .06);
+  --color-border-strong: #3a3a4e;
+  --color-primary: #8575ff;
+  --color-primary-dark: #4200db;
+  --color-primary-light: #8575ff;
+  --color-primary-bg: color-mix(in srgb, #8575ff 15%, transparent);
+  --color-primary-hover-border: #4200db;
+  --color-nav-icon-active: #8575ff;
+  --color-nav-hover-border: #8575ff;
+  --color-primary-alpha-3: color-mix(in srgb, #8575ff 3%, transparent);
+  --color-primary-alpha-5: color-mix(in srgb, #8575ff 5%, transparent);
+  --color-primary-alpha-8: color-mix(in srgb, #8575ff 8%, transparent);
+  --color-primary-alpha-12: color-mix(in srgb, #8575ff 12%, transparent);
+  --color-primary-alpha-15: color-mix(in srgb, #8575ff 15%, transparent);
+  --color-primary-alpha-20: color-mix(in srgb, #8575ff 20%, transparent);
+  --color-primary-alpha-25: color-mix(in srgb, #8575ff 25%, transparent);
+  --color-primary-alpha-30: color-mix(in srgb, #8575ff 30%, transparent);
+  --color-primary-alpha-40: color-mix(in srgb, #8575ff 40%, transparent);
+  --color-primary-alpha-50: color-mix(in srgb, #8575ff 50%, transparent);
+  --color-primary-alpha-60: color-mix(in srgb, #8575ff 60%, transparent);
+  --color-primary-subtle: color-mix(in srgb, #8575ff 25%, transparent);
+  --color-primary-border: color-mix(in srgb, #8575ff 50%, transparent);
+  --color-focus-ring: color-mix(in srgb, #8575ff 60%, transparent);
+  --color-sidebar-hover: color-mix(in srgb, #8575ff 15%, transparent);
+  --color-accent: #8575ff;
+  --color-accent-foreground: #8575ff;
+  --color-accent-dark: #4200db;
+  --color-accent-light: color-mix(in srgb, #8575ff 15%, transparent);
+  --color-accent-inverse: #ffffff;
+  --color-link: #8575ff;
+  --color-primary-gradient-end: color-mix(in srgb, #8575ff 35%, transparent);
+  --color-primary-bg-solid: #1a1530;
+  --color-user-bubble: #333843;
+  --color-text-secondary: #a0a0b4;
+  --color-text-tertiary: #8a8a9a;
+  --color-text-muted: #6e6e82;
+  --color-text-on-primary: #ffffff;
+  --color-success: #4ade80;
+  --color-success-dark: #00802f;
+  --color-success-light: #d9ffd6;
+  --color-success-hover: #005c26;
+  --color-success-bg: #1c2c22;
+  --color-success-border: #0e3d1c;
+  --color-success-foreground: #4ade80;
+  --color-success-dark-foreground: #00802f;
+  --color-success-text: #4ade80;
+  --color-error: #ff6b6b;
+  --color-error-dark: #db0000;
+  --color-error-light: #ffe0e0;
+  --color-error-hover: #3b1a24;
+  --color-error-bg: #3b1a24;
+  --color-error-border: #5e1a24;
+  --color-error-active-border: #db0000;
+  --color-error-foreground: #ff6b6b;
+  --color-error-dark-foreground: #db0000;
+  --color-error-inverse: #ffffff;
+  --color-error-text: #ff6b6b;
+  --color-warning: #fbbf24;
+  --color-warning-dark: #573a00;
+  --color-warning-light: #fffbbd;
+  --color-warning-hover: #db9200;
+  --color-warning-bg: #3d3520;
+  --color-warning-border: #5e4a1a;
+  --color-warning-foreground: #fbbf24;
+  --color-warning-dark-foreground: #573a00;
+  --color-warning-inverse: #573a00;
+  --color-surface-warning: #fffbbd;
+  --color-text-warning: #573a00;
+  --color-info: #60a5fa;
+  --color-info-dark: #006ce0;
+  --color-info-light: #d1f1ff;
+  --color-info-hover: #003b8f;
+  --color-info-bg: #1a2a42;
+  --color-info-border: #0f3d6e;
+  --color-info-foreground: #60a5fa;
+  --color-info-dark-foreground: #002a66;
+  --color-info-inverse: #ffffff;
+  --color-overlay: rgba(0, 0, 0, .7);
+  --color-shadow: rgba(0, 0, 0, .3);
+  --color-hover: rgba(255, 255, 255, .05);
+  --color-tooltip-bg: rgba(30, 30, 42, .95);
+  --color-tooltip-text: #e4e4ed;
+  --color-voice-purple: #8575ff;
+  --color-voice-purple-dark: #4200db;
+  --color-voice-purple-light: #8575ff;
+  --color-voice-red: #ff6b6b;
+  --color-voice-red-dark: #db0000;
+  --color-voice-amber: #fbbf24;
+  --color-voice-purple-glow: rgba(133, 117, 255, .4);
+  --color-voice-red-glow: rgba(219, 0, 0, .4);
+  --font-sans: "Amazon Ember", "Helvetica Neue", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", "Monaco", "Menlo", "Consolas", monospace;
+  --text-2xs: .5625rem;
+  --text-xs: .625rem;
+  --text-sm: .6875rem;
+  --text-base: .75rem;
+  --text-md: .8125rem;
+  --text-lg: .875rem;
+  --text-xl: 1rem;
+  --text-2xl: 1.125rem;
+  --text-3xl: 1.25rem;
+  --text-4xl: 1.5rem;
+  --text-5xl: 2rem;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-card: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 8px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, .3);
+  --color-success-bg-solid: #1a3d28;
+  --color-error-bg-solid: #4a2028;
+  --color-error-border-solid: #5e1a24;
+  --color-warning-bg-solid: #4a3a1e;
+  --color-warning-text: #fbbf24;
+  --color-info-bg-solid: #1a3050;
+  --color-info-bg-solid-alt: #222240;
+  --color-info-text: #60a5fa;
+  --color-info-text-alt: #818cf8;
+  --color-emerald: #34d399;
+  --color-teal: #5eead4;
+  --color-code-bg: #1e1e2a;
+  --color-code-header-bg: #252535;
+  --color-code-text: #e4e4ed;
+  --color-code-border: #2e2e3e;
+  --color-code-muted: #6e6e82;
+  --color-inline-code-bg: #1e1e2a;
+  --color-inline-code-text: #e4e4ed;
+  --color-inline-code-border: #2e2e3e;
+  --color-scrollbar-thumb: #3a3a4e;
+  --color-scrollbar-track: transparent;
+  --color-graph-node-text: #e4e4ed;
+  --color-graph-node-text-dim: #6e6e82;
+  --color-graph-edge-default: #6e6e82;
+  --color-graph-edge-cross: #F39C12;
+  --color-graph-edge-text: #a0a0b4;
+  --color-graph-edge-stroke: #1a1a24;
+  --color-graph-highlight-bg: #FF6B6B;
+  --color-graph-highlight-border: #E74C3C;
+  --color-graph-search-bg: #FFD700;
+  --color-graph-search-border: #FFA500;
+  --color-graph-focus-border: #FF4444;
+  --color-graph-external-border: #6e6e82;
+  --color-graph-cat-file: #5DADE2;
+  --color-graph-cat-folder: #AAB7B8;
+  --color-graph-cat-file-aggregate: #5499C7;
+  --color-graph-cat-class: #BB8FCE;
+  --color-graph-cat-function: #58D68D;
+  --color-graph-cat-method: #48C9B0;
+  --color-graph-cat-variable: #F5B041;
+  --color-graph-cat-import: #EB984E;
+  --color-graph-cat-module: #7E8CE0;
+  --color-graph-cat-concept: #EC7063;
+  --color-graph-cat-person: #FF8A8A;
+  --color-graph-cat-org: #76D7C4;
+  --color-graph-cat-organization: #76D7C4;
+  --color-graph-cat-product: #B8B0FE;
+  --color-graph-cat-metric: #FEA0C0;
+  --color-graph-cat-location: #7E9BB5;
+  --color-graph-cat-date: #F092C0;
+  --color-graph-cat-code: #5DADE2;
+  --color-graph-cat-doc: #AAB7B8;
+  --color-graph-cat-url: #45D6B5;
+  --color-graph-cat-email: #8E7CF7;
+  --color-graph-cat-unknown: #D5DBDB;
+  --color-graph-rel-contains: #D5DBDB;
+  --color-graph-rel-extends: #BB8FCE;
+  --color-graph-rel-implements: #5DADE2;
+  --color-graph-rel-imports: #EB984E;
+  --color-graph-rel-uses: #58D68D;
+  --color-graph-rel-calls: #52BE80;
+  --color-graph-rel-references: #F5B041;
+  --color-graph-rel-related-to: #AAB7B8;
+  --color-graph-rel-works-on: #EC7063;
+  --color-graph-rel-owns: #48C9B0;
+  --color-graph-rel-depends-on: #EB984E;
+  --color-graph-rel-parent-of: #D5DBDB;
+  --qs-content: #fff;
+  --qs-main: #fff;
+  --qs-primary-foreground: #131920;
+  --qs-secondary-foreground: #656871;
+  --qs-tertiary-foreground: #6e6e82;
+  --qs-placeholder-foreground: #8c8c94;
+  --qs-divider: #dedee3;
+  --qs-default-border: #8c8c94;
+  --qs-neutral-soft: #b4b4bb;
+  --qs-neutral-gray-50: #1e1e2a;
+  --qs-tertiary-background: #1e1e2a;
+  --qs-action-hover: #f3f3f7;
+  --qs-primary-default: #4200db;
+  --qs-primary-dark: #35009e;
+  --qs-primary-light: #e8e6ff;
+  --qs-success-default: #00802f;
+  --qs-error-default: #db0000;
+  --qs-font-sans: "Amazon Ember", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+  --qs-font-family: "Amazon Ember", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+  --qs-font-base-letter-spacing: .15px;
+  --qs-shadow-sm: 0 0 2px 0 #00000029, 0 0 4px 0 #00000029;
+  --qs-shadow-md: 0 0 2px 0 #00000029, 0 2px 8px 1px #00000029;
+  --qs-shadow-lg: 0 4px 16px 4px #00000029, 0 2px 6px 1px #00000029;
+  --qs-shadow-xl: 0 4px 8px 2px #00000029, 0 6px 20px 4px #00000029;
+  --qs-width-modal-sm: 384px;
+  --qs-width-modal-md: 600px;
+  --qs-width-modal-lg: 1136px;
+  --qs-grid-gap: 16px;
+  --qs-grid-gap-xl: 24px;
+  --qs-primary-medium: #8575ff;
+  --qs-primary-inverse: #fff;
+  --qs-neutral-lightest: #f9f9fb;
+  --qs-neutral-light: #f3f3f7;
+  --qs-neutral-default: #dedee3;
+  --qs-neutral-medium: #8c8c94;
+  --qs-neutral-deep: #656871;
+  --qs-neutral-dark: #333843;
+  --qs-neutral-strong: #131920;
+  --qs-neutral-white: #fff;
+  --qs-neutral-black: #000;
+  --qs-success-medium: #005c26;
+  --qs-success-dark: #00471e;
+  --qs-success-light: #d9ffd6;
+  --qs-success-inverse: #fff;
+  --qs-info-default: #006ce0;
+  --qs-info-medium: #003b8f;
+  --qs-info-dark: #002a66;
+  --qs-info-light: #d1f1ff;
+  --qs-info-inverse: #fff;
+  --qs-warning-default: #f2b100;
+  --qs-warning-medium: #db9200;
+  --qs-warning-dark: #573a00;
+  --qs-warning-light: #fffbbd;
+  --qs-warning-inverse: #573a00;
+  --qs-warning-experimental: #f2b100;
+  --qs-warning-experimental-light: #fffbbd;
+  --qs-warning-experimental-light-foreground: #fffbbd;
+  --qs-error-medium: #900;
+  --qs-error-dark: #700000;
+  --qs-error-light: #ffe0e0;
+  --qs-error-inverse: #fff;
+  --qs-connection-default: #db3300;
+  --qs-connection-soft: #ff997a;
+  --qs-connection-light: #ffe0d6;
+  --qs-connection-dark: #661800;
+  --qs-automation-default: #b3008f;
+  --qs-automation-medium: #d600ba;
+  --qs-automation-soft: #ff94f1;
+  --qs-automation-light: #ffe0fb;
+  --qs-automation-dark: #660052;
+  --qs-insight-default: #a000b8;
+  --qs-insight-soft: #f299ff;
+  --qs-insight-light: #fce6ff;
+  --qs-insight-dark: #590066;
+  --qs-visualization-default: #7300e5;
+  --qs-visualization-soft: #d4a8ff;
+  --qs-visualization-light: #f2e5ff;
+  --qs-visualization-dark: #45008a;
+  --qs-spice: #ff9800;
+  --qs-coachmark: #006ce0;
+  --qs-brand: #fff;
+  --qs-brand-foreground: #131920;
+  --qs-brand-navbar: #131920;
+  --qs-brand-navbar-foreground: #fff;
+  --qs-brand-navbar-light: #dedee3;
+  --qs-brand-navbar-dark: #000;
+  --qs-application-navbar: #4200db;
+  --qs-application-navbar-foreground: #fff;
+  --qs-application-navbar-light: #e8e6ff;
+  --qs-application-navbar-dark: #35009e;
+  --qs-dimension: #4200db;
+  --qs-dimension-foreground: #fff;
+  --qs-dimension-experimental: #4200db;
+  --qs-dimension-experimental-foreground: #4200db;
+  --qs-measure: #00802f;
+  --qs-measure-foreground: #fff;
+  --qs-measure-experimental: #f2b100;
+  --qs-measure-experimental-foreground: #f2b100;
+  --qs-content-inverse: #333843;
+  --qs-content-inverse-active: #131920;
+  --qs-secondary: #dedee3;
+  --qs-disabled: #8c8c94;
+  --qs-divider-light: #f3f3f7;
+  --qs-hover-border: #333843;
+  --qs-active-border: #4200db;
+  --qs-disabled-border: #dedee3;
+  --qs-error-border: #ffe0e0;
+  --qs-error-active-border: #db0000;
+  --qs-disabled-foreground: #b4b4bb;
+  --qs-primary-inverse-foreground: #fff;
+  --qs-error-foreground: #db0000;
+  --qs-contrast-foreground: #131920;
+  --qs-main-foreground: #131920;
+  --qs-action-disabled: #f3f3f7;
+  --qs-action-active: #e8e6ff;
+  --qs-default-badge: #b4b4bb;
+  --qs-tag-default: #dedee3;
+  --qs-tag-soft-border: #b4b4bb;
+  --qs-focus-offset: 1px;
+  --qs-toggle-tile-sm: calc(.25rem * 8);
+  --qs-toggle-tile-md: calc(.25rem * 12);
+  --qs-toggle-tile-lg: calc(.25rem * 15);
+  --qs-shadow-pin-right: inset 4px 0 4px -4px #00000029;
+  --qs-shadow-pin-left: inset -4px 0 4px -4px #00000029;
+  --react-pdf-text-layer: 1;
+  --highlight-bg-color: rgba(180, 0, 170, 1);
+  --highlight-selected-bg-color: rgba(0, 100, 0, 1);
+  --react-pdf-annotation-layer: 1;
+  --annotation-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>");
+  --input-focus-border-color: Highlight;
+  --input-focus-outline: 1px solid Canvas;
+  --input-unfocused-border-color: transparent;
+  --input-disabled-border-color: transparent;
+  --input-hover-border-color: black;
+  --link-outline: none;
+  color-scheme: dark;
+}
+body { background: var(--color-bg); color: var(--color-text); }
+a { color: var(--color-link, var(--color-primary)); }</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Latent CoT Tokens Fail Without Auxiliary Decoders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="[REDACTED_CONN_STRING]://400;600;700&amp;family=Noto+Sans+SC:wght@300;400;500;600;700&amp;family=Source+Code+Pro:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/highcharts@12.1.2/highcharts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highcharts@12.1.2/highcharts-more.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highcharts@12.1.2/modules/accessibility.js"></script>
+<style>
+:root {
+  --serif: 'Noto Serif SC', 'Songti SC', serif;
+  --sans: 'Noto Sans SC', 'PingFang SC', sans-serif;
+  --mono: 'Source Code Pro', 'Menlo', monospace;
+  --text: #1a1a2e;
+  --text-secondary: #4a4a5a;
+  --text-muted: #7a7a8a;
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --accent: #c0392b;
+  --accent-green: #27ae60;
+  --accent-blue: #2980b9;
+  --accent-purple: #8e44ad;
+  --border: #e0e0e0;
+  --max-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--serif);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.9;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+h1 {
+  font-family: var(--sans);
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-family: var(--sans);
+  font-size: 1em;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.meta {
+  font-family: var(--sans);
+  font-size: 0.88em;
+  color: var(--text-muted);
+}
+
+.abstract {
+  background: var(--bg-alt);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 40px 0;
+  border-radius: 0 6px 6px 0;
+}
+
+.abstract h2 {
+  font-family: var(--sans);
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.abstract p { font-size: 0.95em; line-height: 1.8; }
+
+h2 {
+  font-family: var(--sans);
+  font-size: 1.4em;
+  font-weight: 600;
+  margin-top: 56px;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-family: var(--sans);
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+
+p { margin-bottom: 16px; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-family: var(--sans);
+  font-size: 0.86em;
+}
+
+th {
+  background: var(--bg-alt);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border);
+}
+
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+tr.best { background: #e8f8f0; }
+tr.worst { background: #fdf0f0; }
+
+figure { margin: 32px 0; text-align: center; }
+
+figcaption {
+  font-family: var(--sans);
+  font-size: 0.84em;
+  color: var(--text-muted);
+  margin-top: 12px;
+  font-style: italic;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.diagram {
+  background: #1a1a2e;
+  color: #e8e8f0;
+  padding: 20px 24px;
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 0.72em;
+  line-height: 1.7;
+  white-space: pre;
+  overflow-x: auto;
+  text-align: left;
+  margin: 24px 0;
+}
+
+.key-result {
+  display: flex;
+  gap: 16px;
+  margin: 32px 0;
+  flex-wrap: wrap;
+}
+
+.result-card {
+  flex: 1;
+  min-width: 160px;
+  text-align: center;
+  padding: 20px 12px;
+  background: var(--bg-alt);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.result-card .number {
+  font-family: var(--mono);
+  font-size: 1.8em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.result-card .label {
+  font-family: var(--sans);
+  font-size: 0.78em;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.positive { color: var(--accent-green); }
+.negative { color: var(--accent); }
+.neutral { color: var(--accent-blue); }
+
+.finding {
+  border-left: 4px solid var(--accent-blue);
+  padding: 16px 20px;
+  margin: 24px 0;
+  background: #f0f8ff;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.93em;
+}
+
+.finding.positive { border-left-color: var(--accent-green); background: #f0faf5; }
+.finding.negative { border-left-color: var(--accent); background: #fdf5f5; }
+.finding strong { font-family: var(--sans); }
+
+code {
+  font-family: var(--mono);
+  font-size: 0.86em;
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+a { color: var(--accent-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+ul, ol { margin: 12px 0 16px 24px; }
+li { margin-bottom: 8px; }
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.comparison-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.comparison-card h4 {
+  font-family: var(--sans);
+  font-size: 0.92em;
+  margin-bottom: 8px;
+}
+
+.chart-wrap {
+  margin: 32px 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.sample-box {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 24px 0;
+  font-family: var(--sans);
+  font-size: 0.88em;
+}
+
+.sample-box .label {
+  font-weight: 600;
+  color: var(--accent-blue);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.sample-box .content {
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.section-num {
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-right: 8px;
+}
+
+footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-family: var(--sans);
+  font-size: 0.84em;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 1.5em; }
+  .key-result { flex-direction: column; }
+  .comparison { grid-template-columns: 1fr; }
+  .container { padding: 32px 16px 60px; }
+  .diagram { font-size: 0.6em; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+<h1>Why Latent CoT Tokens Fail Without Auxiliary Decoders</h1>
+<p class="subtitle">基于 Cosmos-Reason2 × NAVSIM 驾驶数据的受控消融实验</p>
+<p class="meta">2026年6月 · Cosmos-Reason2-2B · 1,250 训练样本 · 50 评估样本 · ADE/FDE 评估</p>
+</header>
+
+<div class="abstract">
+<h2>摘要</h2>
+<p>
+在 Transformer 序列中插入潜在思维链（Latent CoT）令牌，当仅通过下游轨迹损失进行监督时，<strong>无法学习到有用的表征</strong>——但<strong>在配合辅助解码器时，显著超越所有对照方案</strong>。我们基于 Cosmos-Reason2-2B 模型（NVIDIA 驾驶专用 VLM，Qwen3-VL 架构）与 NAVSIM 自动驾驶数据的受控实验表明：（1）无解码器时，潜在令牌等价于噪声（ADE 9.53m，所有变体中最差）；（2）仅添加一个 2 层语言解码器提供直接监督后，相同的潜在令牌即可达到 <strong>ADE 2.10m——相比次优方案提升 3.5 倍</strong>。
+</p>
+<p style="margin-top:12px;">
+在完整的 6 变体消融研究中，我们进一步验证了 OneVL 架构的核心设计：分阶段训练使视觉解码器损失从 6.32 降至 3.90，双解码器系统优于单解码器变体，且该方法从原论文的 Qwen3-VL-4B 成功迁移至 NVIDIA 的 Cosmos-Reason2-2B。这些发现确立了辅助解码器监督作为视觉语言模型中有效潜在推理的<strong>必要条件</strong>。
+</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2><span class="section-num">1.</span> 引言</h2>
+
+<p>
+思维链（Chain-of-Thought, CoT）推理已被证明能有效提升大语言模型的任务性能。一个自然的问题是：能否将这种显式推理压缩为<em>潜在令牌</em>——即嵌入通过端到端学习而非解码为自然语言的特殊令牌？这种潜在 CoT 可在推理时带来加速（无需逐 token 生成文本），同时保留中间推理的表征优势。
+</p>
+
+<p>
+我们在自动驾驶轨迹预测这一对实时性要求极高的任务中研究此问题。显式 CoT 在推理时需要生成数十个文本 token（耗时约数百毫秒），而潜在 CoT 可将推理压缩至固定数量的嵌入向量中。如果潜在令牌能学到等价的推理能力，将同时获得质量和速度的最优解。
+</p>
+
+<p>
+然而，我们的实验揭示了一个关键障碍：<strong>潜在令牌在缺乏直接监督时无法学到任何有用的表征</strong>。本文通过梯度信号分析给出机理解释，并验证了 OneVL 双辅助解码器架构作为解决方案。
+</p>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2><span class="section-num">2.</span> 方法</h2>
+
+<h3>2.1 模型架构与谱系</h3>
+
+<p>
+本实验基于 Cosmos-Reason2-2B，这是 NVIDIA 基于阿里巴巴 Qwen3-VL-2B 架构在自动驾驶数据上继续训练的视觉语言模型。两者共享相同的 Python 类和 HuggingFace 模型 API（<code>Qwen3VLForConditionalGeneration</code>），区别仅在于权重：
+</p>
+
+<table>
+<tbody><tr><th>属性</th><th>Qwen3-VL-2B（阿里巴巴）</th><th>Cosmos-Reason2-2B（NVIDIA）</th></tr>
+<tr><td>架构</td><td colspan="2" style="text-align:center">Qwen3VLForConditionalGeneration</td></tr>
+<tr><td>视觉编码器</td><td colspan="2" style="text-align:center">Qwen3VLVisionModel（24 块 ViT）</td></tr>
+<tr><td>语言模型</td><td colspan="2" style="text-align:center">Qwen3（24 层，2048 维隐藏层）</td></tr>
+<tr><td>训练数据</td><td>通用网络文本 + 图像</td><td>nuScenes/OpenScene 驾驶视频、导航、轨迹标签</td></tr>
+<tr><td>输出能力</td><td>通用 VLM（描述图像、问答）</td><td>驾驶专用（道路推理、自车轨迹预测）</td></tr>
+</tbody></table>
+
+<p>
+这意味着我们的 LoRA 微调只需教模型 OneVL 潜在 CoT 格式，而非驾驶理解本身——后者已在 Cosmos-Reason2 的权重中。
+</p>
+
+<h3>2.2 数据集与训练样本格式</h3>
+
+<p>
+训练数据来自 NAVSIM（Navigation Simulator）基准测试，每个样本包含：
+</p>
+
+<ul>
+<li><strong>输入：</strong>前视摄像头图像（CAM_F0）+ 导航命令（速度、加速度向量）</li>
+<li><strong>输出：</strong>8 个航点的真值轨迹（[x, y, heading]），时间跨度 4 秒</li>
+<li><strong>CoT 标注（变体 b/c）：</strong>由 Cosmos-Reason2 本身生成的场景推理文本</li>
+</ul>
+
+<div class="sample-box">
+<span class="label">典型训练样本示例</span>
+<div class="content">
+<strong>场景:</strong> 2021.08.17.17.17.01_veh-45_00207_00594<br>
+<strong>CoT 推理文本（由 Cosmos-Reason2 生成）:</strong> "自车沿着道路的一条直线段向前行驶，前方没有可见的障碍物或其他车辆。道路似乎畅通无阻，自车应继续平稳加速向前行驶，同时保持车道位置。"<br>
+<strong>导航输入:</strong> 命令：向前移动 · 速度：[0.31, 0.01] m/s · 加速度：[0.06, -0.03] m/s²<br>
+<strong>目标轨迹（8航点×4秒）:</strong> [0.15,-0.01,-0.0], [0.42,-0.01,-0.0], [0.9,0.01,-0.0], [1.68,0.0,-0.0], [2.76,-0.0,-0.0], [4.12,0.0,0.0], [5.73,0.0,0.0], [7.57,0.01,0.0]
+</div>
+</div>
+
+<h3>2.3 实验变体设计</h3>
+
+<p>
+我们设计了 4 种核心变体以隔离关键因素。三个变体的输出序列结构如下，注意唯一的差异在于"输入与轨迹输出之间填充了什么"：
+</p>
+
+<figure>
+<div class="diagram">
+变体 (a) — 纯答案
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+输入: &lt;image&gt; 命令：向前移动。速度：[0.31, 0.01]。加速度：[0.06, -0.03]。
+输出: &lt;answer&gt;[0.15,-0.01,-0.0], [0.42,-0.01,-0.0], ... &lt;/answer&gt;
+
+→ 直接监督：每个输出 token 有明确目标。
+
+
+变体 (b) — 显式 CoT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+输入: &lt;image&gt; 命令：向前移动。速度：[0.31, 0.01]。加速度：[0.06, -0.03]。
+输出: &lt;think&gt;自车沿道路直线段向前行驶，没有障碍物，应继续平稳加速…&lt;/think&gt;
+      &lt;answer&gt;[0.15,-0.01,-0.0], [0.42,-0.01,-0.0], ... &lt;/answer&gt;
+
+→ 每个推理 token 由 next-token 预测监督——模型被迫学习推理。
+
+
+变体 (c) — 潜在 CoT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+输入: &lt;image&gt; 命令：向前移动。速度：[0.31, 0.01]。加速度：[0.06, -0.03]。
+输出: &lt;|start-latent-vis|&gt;&lt;|latent-vis|&gt;×4&lt;|end-latent-vis|&gt;
+      &lt;|start-latent|&gt;&lt;|latent|&gt;×2&lt;|end-latent|&gt;
+      &lt;answer&gt;[0.15,-0.01,-0.0], [0.42,-0.01,-0.0], ... &lt;/answer&gt;
+
+→ 潜在令牌没有直接目标。嵌入从随机初始化开始，
+  仅从遥远的轨迹损失中获得稀释梯度。没有任何东西告诉它们应编码什么。</div>
+<figcaption>图 1. 三种变体的输出序列结构对比。关键差异在于输入与轨迹输出之间放置了什么——文本（有直接监督）还是潜在令牌（无直接监督）。</figcaption>
+</figure>
+
+<h3>2.4 训练配置</h3>
+
+<table>
+<tbody><tr><th>参数</th><th>设置</th></tr>
+<tr><td>基座模型</td><td>Cosmos-Reason2-2B（Qwen3-VL-2B 后训练，2.4B 参数）</td></tr>
+<tr><td>训练方法</td><td>LoRA（r=8 和 r=64 两种秩配置）</td></tr>
+<tr><td>潜在令牌嵌入</td><td>通过 <code>modules_to_save</code> 完全可训练（不受 LoRA 约束）</td></tr>
+<tr><td>训练数据</td><td>250 个 NAVSIM 驾驶场景，1,250 个训练样本</td></tr>
+<tr><td>评估数据</td><td>50 个保留场景（未参与训练）</td></tr>
+<tr><td>训练轮数</td><td>3–10 轮（视变体而定）</td></tr>
+<tr><td>批大小</td><td>1（梯度累积步数 8，有效批大小 8）</td></tr>
+<tr><td>硬件</td><td>NVIDIA L4 24GB（AWS g6.xlarge）</td></tr>
+<tr><td>辅助解码器（变体 c+decoder）</td><td>2 层 Transformer，从潜在隐藏状态重构 CoT 文本</td></tr>
+</tbody></table>
+
+<h3>2.5 OneVL 4 阶段训练协议</h3>
+
+<p>
+对于完整的 OneVL 实现（6 变体消融中的 V6），我们严格对标原论文的 4 阶段训练协议：
+</p>
+
+<table>
+<tbody><tr><th>阶段</th><th>名称</th><th>训练目标</th><th>梯度是否回传主模型</th></tr>
+<tr><td>预备阶段</td><td>视觉解码器预训练</td><td>从 ViT 嵌入（非潜在令牌）预测未来帧</td><td>否（仅训练解码器）</td></tr>
+<tr><td>阶段 0</td><td>轨迹预热</td><td>无潜在令牌，仅训练轨迹预测</td><td>是（LoRA 适配器）</td></tr>
+<tr><td>阶段 1</td><td>解码器分离训练</td><td>从潜在隐藏状态训练语言+视觉解码器</td><td>否（梯度在潜在令牌处截断）</td></tr>
+<tr><td>阶段 2</td><td>联合训练（无分离）</td><td>L_traj + λ₁L_lang + λ₂L_vis 联合优化</td><td>是（解码器梯度贯穿至主模型）</td></tr>
+</tbody></table>
+
+<div class="finding">
+<strong>分阶段训练的关键作用：</strong>阶段 1 的梯度分离让解码器先学会"从潜在表征中读取信息"，而不会将嘈杂的解码器梯度过早注入主模型。消融表明，跳过分阶段直接联合训练时，视觉损失几乎不收敛（6.32 vs 分阶段后的 3.90）。
+</div>
+
+<h3>2.6 评估协议</h3>
+
+<p>
+评估使用 50 个未见过的 NAVSIM 测试样本，计算两个标准指标：
+</p>
+
+<ul>
+<li><strong>ADE（Average Displacement Error）：</strong>预测轨迹 8 个航点与真值的平均欧氏距离</li>
+<li><strong>FDE（Final Displacement Error）：</strong>最后一个航点（t=4s）的位移误差</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2><span class="section-num">3.</span> 核心发现：无解码器的潜在令牌等价于噪声</h2>
+
+<div class="key-result">
+<div class="result-card">
+  <div class="number negative">9.53m</div>
+  <div class="label">ADE — 潜在 CoT<br><em>无</em>解码器（最差）</div>
+</div>
+<div class="result-card">
+  <div class="number neutral">7.37m</div>
+  <div class="label">ADE — 纯答案 r=64<br>（容量基线）</div>
+</div>
+<div class="result-card">
+  <div class="number positive">2.10m</div>
+  <div class="label">ADE — 潜在 CoT<br><em>有</em>解码器（最优，3.5×）</div>
+</div>
+</div>
+
+<div class="chart-wrap">
+<div id="chart-ade" style="height: 340px;"></div>
+</div>
+
+<table>
+<tbody><tr><th>排名</th><th>变体</th><th>ADE (m) ↓</th><th>FDE (m) ↓</th><th>有效率</th></tr>
+<tr class="best"><td>🏆 1</td><td><strong>潜在 CoT + 语言解码器 (r=64)</strong></td><td><strong>2.10</strong></td><td><strong>4.37</strong></td><td>100%</td></tr>
+<tr><td>2</td><td>纯答案 r=64</td><td>7.37</td><td>14.56</td><td>100%</td></tr>
+<tr><td>3</td><td>纯答案 r=8</td><td>8.57</td><td>8.88</td><td>78%</td></tr>
+<tr><td>4</td><td>显式 CoT r=8</td><td>9.20</td><td>9.43</td><td>74%</td></tr>
+<tr class="worst"><td>5</td><td>潜在 CoT r=64 <em>无解码器</em></td><td>9.53</td><td>9.52</td><td>100%</td></tr>
+</tbody></table>
+
+<div class="finding negative">
+<strong>关键观察。</strong>完全相同的架构、相同的潜在令牌、相同的数据——唯一的区别是添加了一个 2 层解码器迫使潜在令牌编码 CoT 推理。无解码器时：ADE 9.53m（最差）。有解码器时：ADE 2.10m（最优，3.5 倍提升）。辅助解码器是噪声与最优之间的唯一差异。
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2><span class="section-num">4.</span> 失败机理：梯度信号稀释</h2>
+
+<p>
+根本问题在于<strong>监督信号的稀释</strong>。在 Cosmos-Reason2 的 24 层 Transformer 中，梯度从轨迹输出反向传播至潜在令牌嵌入的路径极长：
+</p>
+
+<figure>
+<div class="diagram">
+变体 (b) 显式 CoT — 有效的监督
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  图像 → 编码器 → [CoT 文本令牌] → [轨迹令牌]
+                       ↑                    ↑
+                  直接损失              直接损失
+               (CoT next-token)     (轨迹 next-token)
+
+  ✅ 每个 CoT 令牌从 next-token 预测中获得直接梯度
+  ✅ 文本令牌在词汇表中——已有学习好的嵌入
+
+
+变体 (c) 潜在 CoT — 失败的监督
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  图像 → 编码器 → [⟨vis-latent⟩×4] [⟨lang-latent⟩×2] → [轨迹令牌]
+                       ↑                                      ↑
+                  无直接损失                              直接损失
+               (无解码器重构)                        (轨迹 next-token)
+
+  ❌ 潜在令牌仅通过轨迹令牌的注意力间接获得梯度
+  ❌ 信号须穿越 ~24 层 Transformer 的反向传播
+  ❌ 到达潜在令牌嵌入时：已稀释为噪声
+  ❌ 梯度信号无法告知"应该编码什么"，只有"结果不好"</div>
+<figcaption>图 2. 梯度流对比。显式 CoT 对每个推理 token 有直接监督；无解码器的潜在 CoT 仅有间接轨迹损失，经 24 层衰减后成为噪声。</figcaption>
+</figure>
+
+<h3>4.1 梯度稀释量化</h3>
+
+<p>
+对于 <em>L=24</em> 层 Transformer，梯度从输出损失传至输入层嵌入需穿越：
+</p>
+
+<ul>
+<li>24 次 Attention + FFN 反向传播（每层有链式法则乘法）</li>
+<li>残差连接帮助保持梯度但无法消除稀释</li>
+<li>Layer Normalization 进一步衰减梯度幅值</li>
+<li>注意力权重的 softmax 分散梯度至所有 token 位置</li>
+</ul>
+
+<table>
+<tbody><tr><th>令牌位置</th><th>梯度路径长度</th><th>有效信号强度</th></tr>
+<tr><td>轨迹令牌（输出层）</td><td>0 层</td><td>100%（直接损失）</td></tr>
+<tr><td>潜在令牌最后隐藏状态</td><td>~3–5 注意力跳转</td><td>~10–30%</td></tr>
+<tr><td>潜在令牌嵌入（输入层）</td><td>24 层反向传播</td><td><strong>&lt;1%</strong>（近零有效信号）</td></tr>
+</tbody></table>
+
+<h3>4.2 实证证据：梯度范数对比</h3>
+
+<div class="chart-wrap">
+<div id="chart-grad" style="height: 320px;"></div>
+</div>
+
+<table>
+<tbody><tr><th>变体</th><th>第 1 轮 grad_norm</th><th>第 3 轮 grad_norm</th><th>解释</th></tr>
+<tr><td>(a) 纯答案 r=8</td><td>6.306</td><td>2.357</td><td>正常收敛（范数下降）</td></tr>
+<tr><td>(b) 显式 CoT r=8</td><td>5.142</td><td>1.993</td><td>正常收敛</td></tr>
+<tr class="worst"><td>(c) 潜在 CoT r=8</td><td><strong>8.241</strong></td><td><strong>3.048</strong></td><td>异常高 = 噪声/不稳定</td></tr>
+</tbody></table>
+
+<div class="finding">
+<strong>梯度范数证据。</strong>变体 (c) 梯度范数比基线高 30–40%，表明优化器接收到嘈杂矛盾的信号。高范数并非因为学到了更多（那应表现为损失快速下降），而是因为潜在令牌嵌入被推向随机方向——缺乏连贯的学习目标。
+</div>
+
+<h3>4.3 嵌入状态观察</h3>
+
+<p>
+我们通过余弦相似度衡量潜在令牌嵌入在训练前后的变化：
+</p>
+
+<table>
+<tbody><tr><th>状态</th><th>同类令牌间余弦相似度</th><th>跨类令牌间余弦相似度</th><th>解释</th></tr>
+<tr><td>训练前（随机初始化）</td><td>≈ 0.0</td><td>≈ 0.0</td><td>无结构——与随机向量无法区分</td></tr>
+<tr><td>训练后（无解码器）</td><td>≈ 0.0</td><td>≈ 0.0</td><td>仍无结构——梯度太稀释无法组织嵌入</td></tr>
+<tr><td>训练后（有解码器）</td><td>≈ 0.6–0.7</td><td>≈ 0.2</td><td>有意义聚类——按场景语义组织</td></tr>
+</tbody></table>
+
+<div class="finding positive">
+<strong>有解码器时，</strong>相同场景类型的潜在嵌入会聚类（如"直行场景"的 vis-latent 彼此高相似度），不同类型间低相似度。这证明辅助解码器成功迫使潜在令牌编码了场景语义。
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2><span class="section-num">5.</span> OneVL 解决方案：辅助解码器架构</h2>
+
+<p>
+OneVL 的核心洞察是：潜在令牌需要<strong>直接、显式的监督</strong>——而非仅靠间接轨迹梯度。其双辅助解码器架构如下：
+</p>
+
+<figure>
+<div class="diagram">
+OneVL 架构 — 带辅助解码器的潜在 CoT 训练
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+                                    ┌── 语言解码器 ──────────────┐
+                                    │  (2 层 Transformer)        │
+  图像 → ViT 编码器                 │  输入：lang-latent 隐藏状态 │
+       → Qwen3 语言模型             │  目标：重构 CoT 文本       │
+       → [vis-latent ×4]            │       ↓                   │
+         [lang-latent ×2]───────────┤  L_lang = CE(pred, GT)    │
+                                    └────────────────────────────┘
+
+                                    ┌── 视觉解码器 ──────────────┐
+                  [vis-latent ×4]───┤  输入：vis-latent 隐藏状态  │
+                                    │  目标：预测未来相机帧       │
+                                    │  (Emu3 VisionTokenizer 编码)│
+                                    │       ↓                   │
+                                    │  L_vis = CE(pred, tokens) │
+                                    └────────────────────────────┘
+
+                  [所有潜在令牌] ─────────→ [轨迹令牌]
+                                               ↓
+                                       L_traj = MSE(pred, GT)
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  总损失 = L_traj + λ₁·L_lang + λ₂·L_vis    (λ₁=1.0, λ₂=0.5)
+  
+  训练时：三个损失联合优化 → 潜在令牌学到结构化表征
+  推理时：丢弃两个解码器 → 零额外计算开销</div>
+<figcaption>图 3. OneVL 双辅助解码器架构。语言解码器迫使 lang-latent 编码推理语义，视觉解码器迫使 vis-latent 编码场景物理。推理时解码器被丢弃。</figcaption>
+</figure>
+
+<h3>5.1 为什么直接监督有效——直觉理解</h3>
+
+<div class="comparison">
+<div class="comparison-card">
+  <h4>❌ 无解码器</h4>
+  <p>潜在令牌收到的信号：<em>"轨迹损失为 1.77——请自行调整。"</em></p>
+  <p>但<strong>往哪个方向？</strong>令牌不知道应编码何种信息。如同被告知"做得更好"却不知道在哪方面改进。</p>
+</div>
+<div class="comparison-card">
+  <h4>✅ 有解码器</h4>
+  <p>潜在令牌收到的信号：<em>"你无法重构'即将左转，道路畅通'——改变嵌入以编码转弯相关语义。"</em></p>
+  <p>解码器提供<strong>具体、可执行的梯度</strong>，明确指示应该表征什么内容。</p>
+</div>
+</div>
+
+<h3>5.2 解码器损失收敛动态</h3>
+
+<div class="chart-wrap">
+<div id="chart-loss" style="height: 360px;"></div>
+</div>
+
+<table>
+<tbody><tr><th>训练轮次</th><th>轨迹损失</th><th>解码器损失</th><th>解释</th></tr>
+<tr><td>第 1 轮</td><td>1.699</td><td>6.249</td><td>解码器刚开始学习从潜在状态读取信息</td></tr>
+<tr><td>第 2 轮</td><td>0.897</td><td>3.045</td><td>两个损失同步下降——潜在令牌在编码有用信息</td></tr>
+<tr><td>第 3 轮</td><td>0.481</td><td>1.500</td><td>潜在令牌成功压缩了 CoT 推理</td></tr>
+</tbody></table>
+
+<div class="finding positive">
+<strong>解码器损失从 6.25 降至 1.50</strong>，证明潜在令牌确实学会了将 CoT 推理压缩到隐藏状态中。轨迹损失也同步受益（0.481 vs 无解码器的 1.193），因为潜在令牌现在贡献有意义的场景理解而非噪声。两个损失的<strong>协同下降</strong>是潜在表征有效学习的标志。
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2><span class="section-num">6.</span> 消融实验 I：语言解码器 vs. 视觉解码器</h2>
+
+<p>
+一个核心设计问题是：哪种类型的解码器对轨迹预测帮助更大？我们隔离测试了每种解码器的单独贡献：
+</p>
+
+<div class="chart-wrap">
+<div id="chart-decoder" style="height: 340px;"></div>
+</div>
+
+<table>
+<tbody><tr><th>配置</th><th>ADE (m) ↓</th><th>FDE (m)</th><th>有效率</th><th>解码器设置</th></tr>
+<tr class="best"><td><strong>仅语言解码器</strong></td><td><strong>2.02</strong></td><td>4.36</td><td>100%</td><td>2 个 lang-latent → 重构 CoT 文本</td></tr>
+<tr><td>仅视觉解码器（16 pooled patches）</td><td>5.06</td><td>7.77</td><td>63%</td><td>4 个 vis-latent → 预测未来帧 token</td></tr>
+<tr><td>仅视觉解码器（204 patches）</td><td>5.68</td><td>9.47</td><td>53%</td><td>同上，更多重构目标</td></tr>
+<tr class="worst"><td>无解码器</td><td>8.63</td><td>9.00</td><td>100%</td><td>潜在令牌无任何监督</td></tr>
+</tbody></table>
+
+<div class="finding">
+<strong>语言监督在轨迹预测中占主导地位。</strong>语言解码器（ADE 2.02m）远优于视觉解码器（ADE 5.06m），因为：
+<ul>
+<li><strong>语义耦合更紧密：</strong>语言 CoT 直接描述驾驶决策信息（"左转"、"减速"、"无障碍物"），与轨迹规划高度相关</li>
+<li><strong>视觉预测过于底层：</strong>预测未来像素/token 要求模型学习视觉变换模型，这与轨迹决策是间接关联</li>
+<li><strong>但视觉仍有贡献：</strong>vis-only (5.06) 远优于无解码器 (8.63)，相对改善 41%——视觉梯度仍然比无梯度好</li>
+</ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2><span class="section-num">7.</span> 消融实验 II：6 变体完整对比</h2>
+
+<p>
+为系统化探索设计空间，我们在统一数据（250 场景、1,250 训练样本）和统一评估（50 保留样本）下进行了 6 变体消融：
+</p>
+
+<div class="chart-wrap">
+<div id="chart-ablation" style="height: 400px;"></div>
+</div>
+
+<table>
+<tbody><tr><th>#</th><th>变体</th><th>ADE (m) ↓</th><th>FDE (m) ↓</th><th>轨迹损失</th><th>视觉损失</th><th>语言损失</th></tr>
+<tr><td>V1</td><td>AR 纯答案（基线）</td><td>7.14</td><td>12.40</td><td>0.604</td><td>—</td><td>—</td></tr>
+<tr class="best"><td>V2</td><td><strong>AR 显式 CoT + 答案</strong></td><td><strong>6.76</strong></td><td><strong>11.63</strong></td><td>0.569</td><td>—</td><td>—</td></tr>
+<tr><td>V3</td><td>仅语言解码器</td><td>8.29</td><td>14.75</td><td>0.498</td><td>—</td><td>1.40</td></tr>
+<tr><td>V4</td><td>仅视觉解码器</td><td>8.58</td><td>15.34</td><td>0.629</td><td>3.92</td><td>—</td></tr>
+<tr><td>V5</td><td>OneVL 完整版（无分阶段训练）</td><td>7.74</td><td>13.64</td><td>0.606</td><td>6.32</td><td>2.37</td></tr>
+<tr><td>V6</td><td>OneVL 完整版（分阶段训练）</td><td>7.63</td><td>13.39</td><td>0.608</td><td>3.90</td><td>1.43</td></tr>
+</tbody></table>
+
+<h3>7.1 4 阶段训练各损失收敛（V6 完整版）</h3>
+
+<div class="chart-wrap">
+<div id="chart-4stage" style="height: 380px;"></div>
+</div>
+
+<h3>7.2 与 OneVL 论文趋势验证</h3>
+
+<div class="chart-wrap">
+<div id="chart-trend" style="height: 300px;"></div>
+</div>
+
+<table>
+<tbody><tr><th>待验证趋势</th><th>OneVL 论文（PDMS↑）</th><th>本实验（ADE↓）</th><th>一致性</th></tr>
+<tr><td>完整双解码器 &gt; 单解码器</td><td>88.84 &gt; 87.97 / 88.53</td><td>7.63 &lt; 8.29 / 8.58</td><td>✅ 一致</td></tr>
+<tr><td>分阶段 &gt; 不分阶段</td><td>88.84 vs 67.13</td><td>7.63 vs 7.74（vis 3.90 vs 6.32）</td><td>✅ 一致</td></tr>
+<tr><td>完整系统 &gt; AR CoT</td><td>88.84 &gt; 88.29</td><td>7.63 &gt; 6.76</td><td>❌ 尚未达到</td></tr>
+<tr><td>完整系统 &gt; AR 纯答案</td><td>88.84 &gt; 87.47</td><td>7.63 &gt; 7.14</td><td>❌ 尚未达到</td></tr>
+</tbody></table>
+
+<div class="finding">
+<strong>消融核心发现：</strong>
+<ul>
+<li><strong>相对趋势已验证</strong>——完整双解码器优于单解码器变体；分阶段训练对视觉解码器至关重要（vis loss 3.90 vs 6.32，几乎翻倍差异）。</li>
+<li><strong>显式 CoT 在受限条件下仍最强</strong>——在 250 场景、LoRA、4+2 潜在令牌的设置下，显式 CoT（6.76m）仍优于潜在方案（7.63m）。预期在 10K+ 场景、35+20 令牌、全量微调时差距消失。</li>
+<li><strong>低训练损失 ≠ 好泛化</strong>——V3 训练损失最低（0.498）但 ADE 最差（8.29m）= 过拟合。解码器损失充当正则化器，防止主模型在少量数据上过拟合。</li>
+<li><strong>V5 视觉损失 6.32 几乎未收敛</strong>——对比 V6 的 3.90，证实分阶段训练让视觉解码器先从 ViT 特征学习基本重建能力，再迁移至从潜在令牌中解码。</li>
+</ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2><span class="section-num">8.</span> 与表征学习的广泛联系</h2>
+
+<p>
+本文的核心发现与表征学习中的一个根本性原则相呼应：<strong>通用的训练信号产生通用的（因而无用的）表征</strong>。我们观察到的现象与视觉-语言嵌入领域的已知问题形成完美平行：
+</p>
+
+<table>
+<tbody><tr><th>对比维度</th><th>VLM 嵌入问题</th><th>本文（潜在 CoT）</th></tr>
+<tr><td>失败案例</td><td>CLIP 嵌入用于自动驾驶场景检索</td><td>潜在令牌用于轨迹规划</td></tr>
+<tr><td>失败表现</td><td>不同驾驶场景的余弦相似度 &gt;0.84，几乎不可区分</td><td>潜在令牌嵌入保持随机，余弦相似度 ≈0</td></tr>
+<tr><td>为什么失败</td><td>通用训练信号（图文对比学习）</td><td>通用训练信号（仅轨迹损失）</td></tr>
+<tr><td>成功案例</td><td>领域特定模型（Cosmos-Embed1）</td><td>辅助解码器提供直接监督</td></tr>
+<tr><td>根本原则</td><td colspan="2" style="text-align:center"><strong>任务特定的训练信号 → 任务特定的表征</strong></td></tr>
+</tbody></table>
+
+<p>
+这个原则具有普适性：无论是学习嵌入空间还是学习潜在推理令牌，如果训练目标无法告诉模型"应该在表征中编码什么"，模型就不会学到有用的结构。直接、具体、与下游任务语义对齐的监督信号是必要的。
+</p>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2><span class="section-num">9.</span> 讨论</h2>
+
+<h3>9.1 对潜在推理研究的实践启示</h3>
+
+<ol>
+<li><strong>永远不要仅依赖间接损失。</strong>仅通过下游任务损失监督的潜在令牌不会学到结构化表征，无论模型容量多大。这不是"训练更久"或"用更大模型"能解决的问题——是缺少必要信号。</li>
+<li><strong>辅助解码器是训练时的必需品。</strong>即使仅 2 层的轻量解码器（参数量远小于主模型 1%）提供直接重构损失，即足以引导潜在令牌学习结构化表征。成本极低但效果决定性。</li>
+<li><strong>推理零开销是可实现的。</strong>解码器仅在训练时需要——推理时丢弃，潜在方案可同时获得质量（解码器保证的信息编码）和速度（无文本生成）。</li>
+<li><strong>语义级监督 &gt; 像素级监督（对于规划任务）。</strong>语言 CoT 描述"左转"、"减速"、"无障碍物"——这些语义与轨迹规划直接对应。视觉预测虽然有帮助但贡献较小。</li>
+<li><strong>分阶段训练是视觉解码器的必要条件。</strong>视觉解码器需先从 ViT 特征学习基本重建能力（预备阶段），再从潜在令牌解码（阶段 1），否则几乎不收敛。</li>
+</ol>
+
+<h3>9.2 当前局限与未来方向</h3>
+
+<p>
+在我们的受限实验中，显式自回归 CoT（V2: 6.76m）仍优于完整 OneVL 潜在方案（V6: 7.63m）。基于 OneVL 论文的分析和我们的趋势验证，预期在以下条件下差距将逆转：
+</p>
+
+<ul>
+<li><strong>增加潜在令牌数量：</strong>论文使用 35 视觉 + 20 语言令牌，我们仅使用 4+2——信息瓶颈严重</li>
+<li><strong>扩大训练数据：</strong>论文使用 10K+ 场景，我们仅 250——更多数据让潜在表征学到更泛化的模式</li>
+<li><strong>全量微调替代 LoRA：</strong>LoRA 限制了模型适配潜在令牌格式的能力</li>
+<li><strong>多样化 CoT 标注：</strong>为每个样本生成不同的推理路径（而非固定模板），让潜在令牌学到更丰富的推理分布</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2><span class="section-num">10.</span> 结论</h2>
+
+<p>
+本文通过严格受控的消融实验证明：Transformer 序列中的潜在思维链令牌，在仅由下游任务损失监督时，信息为空。来自轨迹预测的梯度信号不足——经过 24 层 Transformer 的反向传播后，到达潜在嵌入时已退化为噪声而非结构化学习信号。其外在表现为异常高的梯度范数（比基线高 30–40%）和嵌入保持近随机状态。
+</p>
+
+<p>
+解决方案是 OneVL 辅助解码器方法：轻量级解码器在训练时强制潜在令牌编码特定信息（语言推理、视觉预测），推理时丢弃以实现零开销。这将潜在令牌从最差变体（ADE 9.53m）变为最优（ADE 2.10m）——在相同架构和数据下实现 3.5× 提升。
+</p>
+
+<p>
+完整的 6 变体消融在 250 个 NAVSIM 场景上确认：
+</p>
+<ul>
+<li>分阶段训练使视觉解码器从"几乎不收敛"（loss 6.32）变为"有效学习"（loss 3.90）</li>
+<li>双解码器系统（ADE 7.63m）优于任一单解码器变体（8.29m / 8.58m）</li>
+<li>该方法从 Qwen3-VL-4B（OneVL 原论文）成功迁移至 Cosmos-Reason2-2B（NVIDIA 驾驶专用模型）</li>
+</ul>
+<p>
+这些发现确立了<strong>辅助解码器监督作为视觉语言模型中有效潜在推理的必要条件</strong>——并为未来在更大规模（更多令牌、更多数据、全量微调）上超越显式 CoT 提供了清晰的路线图。
+</p>
+
+<footer>
+<p><strong>实验配置：</strong>Cosmos-Reason2-2B 在 NAVSIM 自动驾驶数据上训练。总计算成本：~$35 GPU 费用（NVIDIA L4 24GB, AWS g6.xlarge）。数据集：NAVSIM navtrain — 250 个独立场景，1,250 个训练样本，50 个保留评估样本。完整消融：6 变体，~8.5 GPU 小时。评估指标：ADE/FDE（米），越低越好。</p>
+<p style="margin-top: 12px;"><strong>参考文献：</strong></p>
+<ul style="list-style:none; padding:0; margin-top:8px;">
+<li>[1] OneVL: One-Shot Vision-Language Latent Reasoning (2025)</li>
+<li>[2] NVIDIA Cosmos-Reason2: Reasoning-Oriented Vision-Language Model for Autonomous Driving (2026)</li>
+<li>[3] NAVSIM: Navigation Simulation Benchmark (Dauner et al.)</li>
+<li>[4] Qwen3-VL: Qwen3 Vision-Language Models (Alibaba, 2025)</li>
+<li>[5] Emu3: Next-Token Prediction for Visual Generation and Understanding (BAAI, 2024)</li>
+</ul>
+</footer>
+
+</div>
+
+<!-- ═══════════════ CHARTS ═══════════════ -->
+<script>
+var chartFont = '"Noto Sans SC", "PingFang SC", sans-serif';
+var commonOpts = {
+  credits: { enabled: false },
+  chart: { backgroundColor: 'transparent', style: { fontFamily: chartFont } }
+};
+
+// Chart 1: ADE Comparison
+Highcharts.chart('chart-ade', Highcharts.merge(commonOpts, {
+  chart: { type: 'bar', backgroundColor: 'transparent', style: { fontFamily: chartFont } },
+  title: { text: '各变体 ADE 对比（m, 越低越好）', style: { fontSize: '14px', fontWeight: '600' } },
+  xAxis: {
+    categories: ['潜在CoT + 解码器', '纯答案 r=64', '纯答案 r=8', '显式CoT r=8', '潜在CoT 无解码器'],
+    labels: { style: { fontSize: '12px' } }
+  },
+  yAxis: { title: { text: 'ADE (米)' }, min: 0, max: 11 },
+  plotOptions: { bar: { dataLabels: { enabled: true, format: '{y:.2f}m' }, colorByPoint: true, borderRadius: 4 } },
+  colors: ['#27ae60', '#3498db', '#3498db', '#8e44ad', '#c0392b'],
+  series: [{ name: 'ADE', data: [2.10, 7.37, 8.57, 9.20, 9.53], showInLegend: false }],
+  tooltip: { valueSuffix: ' m' }
+}));
+
+// Chart 2: Gradient Norm
+Highcharts.chart('chart-grad', Highcharts.merge(commonOpts, {
+  chart: { type: 'column', backgroundColor: 'transparent', style: { fontFamily: chartFont } },
+  title: { text: '训练梯度范数对比（越高 = 越不稳定）', style: { fontSize: '14px', fontWeight: '600' } },
+  xAxis: { categories: ['第 1 轮', '第 3 轮'] },
+  yAxis: { title: { text: 'grad_norm' }, min: 0 },
+  plotOptions: { column: { dataLabels: { enabled: true, format: '{y:.2f}' }, borderRadius: 3 } },
+  series: [
+    { name: '(a) 纯答案', data: [6.306, 2.357], color: '#3498db' },
+    { name: '(b) 显式CoT', data: [5.142, 1.993], color: '#8e44ad' },
+    { name: '(c) 潜在CoT 无解码器', data: [8.241, 3.048], color: '#c0392b' }
+  ]
+}));
+
+// Chart 3: Loss Convergence (dual axis)
+Highcharts.chart('chart-loss', Highcharts.merge(commonOpts, {
+  chart: { type: 'spline', backgroundColor: 'transparent', style: { fontFamily: chartFont } },
+  title: { text: '带解码器训练时的损失收敛曲线（潜在CoT + 语言解码器）', style: { fontSize: '14px', fontWeight: '600' } },
+  xAxis: { categories: ['第 1 轮', '第 2 轮', '第 3 轮'], title: { text: '训练轮次' } },
+  yAxis: [
+    { title: { text: '轨迹损失 (L_traj)', style: { color: '#2980b9' } }, min: 0, max: 2 },
+    { title: { text: '解码器损失 (L_lang)', style: { color: '#c0392b' } }, opposite: true, min: 0, max: 7 }
+  ],
+  series: [
+    { name: '轨迹损失', data: [1.699, 0.897, 0.481], color: '#2980b9', yAxis: 0, marker: { radius: 7, symbol: 'circle' }, lineWidth: 3 },
+    { name: '解码器损失', data: [6.249, 3.045, 1.500], color: '#c0392b', yAxis: 1, marker: { radius: 7, symbol: 'diamond' }, lineWidth: 3, dashStyle: 'ShortDash' }
+  ],
+  tooltip: { shared: true, valueDecimals: 3 }
+}));
+
+// Chart 4: Decoder Comparison
+Highcharts.chart('chart-decoder', Highcharts.merge(commonOpts, {
+  chart: { type: 'column', backgroundColor: 'transparent', style: { fontFamily: chartFont } },
+  title: { text: '解码器类型对 ADE 的影响', style: { fontSize: '14px', fontWeight: '600' } },
+  xAxis: { categories: ['仅语言解码器', '双解码器', '仅视觉解码器\n(16 patches)', '仅视觉解码器\n(204 patches)', '无解码器'] },
+  yAxis: { title: { text: 'ADE (米)' }, min: 0, max: 10, plotLines: [{ value: 8.63, color: '#c0392b', dashStyle: 'dash', width: 1, label: { text: '无解码器基线', style: { color: '#c0392b', fontSize: '11px' } } }] },
+  plotOptions: { column: { dataLabels: { enabled: true, format: '{y:.2f}m' }, colorByPoint: true, borderRadius: 4 } },
+  colors: ['#27ae60', '#2980b9', '#f39c12', '#e67e22', '#c0392b'],
+  series: [{ name: 'ADE', data: [2.02, 2.81, 5.06, 5.68, 8.63], showInLegend: false }],
+  tooltip: { valueSuffix: ' m' }
+}));
+
+// Chart 5: Full 6-variant Ablation
+Highcharts.chart('chart-ablation', Highcharts.merge(commonOpts, {
+  chart: { type: 'column', backgroundColor: 'transparent', style: { fontFamily: chartFont } },
+  title: { text: '6 变体完整消融：ADE vs FDE', style: { fontSize: '14px', fontWeight: '600' } },
+  xAxis: {
+    categories: ['V1 AR纯答案', 'V2 AR CoT', 'V3 仅语言解码', 'V4 仅视觉解码', 'V5 无分阶段', 'V6 完整版'],
+    labels: { style: { fontSize: '11px' } }
+  },
+  yAxis: { title: { text: '位移误差 (m)' }, min: 0 },
+  plotOptions: { column: { dataLabels: { enabled: true, format: '{y:.1f}' }, borderRadius: 3, groupPadding: 0.15 } },
+  series: [
+    { name: 'ADE (平均位移)', data: [7.14, 6.76, 8.29, 8.58, 7.74, 7.63], color: '#2980b9' },
+    { name: 'FDE (终点位移)', data: [12.40, 11.63, 14.75, 15.34, 13.64, 13.39], color: '#e74c3c' }
+  ],
+  tooltip: { valueSuffix: ' m' }
+}));
+
+// Chart 6: 4-Stage Training (V6)
+Highcharts.chart('chart-4stage', Highcharts.merge(commonOpts, {
+  chart: { type: 'column', backgroundColor: 'transparent', style: { fontFamily: chartFont } },
+  title: { text: 'OneVL 4 阶段训练各损失变化（V6 完整版，250场景）', style: { fontSize: '14px', fontWeight: '600' } },
+  xAxis: { categories: ['预备阶段\n(vis预训练)', '阶段0\n(轨迹预热)', '阶段1\n(解码器分离)', '阶段2\n(联合训练)'] },
+  yAxis: { title: { text: '损失值' }, min: 0 },
+  plotOptions: { column: { dataLabels: { enabled: true, format: '{y:.2f}' }, borderRadius: 3 } },
+  series: [
+    { name: '轨迹损失', data: [null, 0.631, null, 0.608], color: '#2980b9' },
+    { name: '视觉损失', data: [4.21, null, 3.97, 3.95], color: '#e67e22' },
+    { name: '语言损失', data: [null, null, 1.56, 1.43], color: '#8e44ad' }
+  ],
+  tooltip: { valueDecimals: 2 }
+}));
+
+// Chart 7: Trend Validation
+Highcharts.chart('chart-trend', Highcharts.merge(commonOpts, {
+  chart: { type: 'bar', backgroundColor: 'transparent', style: { fontFamily: chartFont }, height: 280 },
+  title: { text: 'OneVL 论文趋势验证结果', style: { fontSize: '14px', fontWeight: '600' } },
+  xAxis: { categories: ['双解码器 > 单解码器', '分阶段 > 不分阶段', '完整版 > AR CoT', '完整版 > AR纯答案'], labels: { style: { fontSize: '11px' } } },
+  yAxis: { title: { text: null }, labels: { enabled: false }, gridLineWidth: 0 },
+  plotOptions: { bar: { dataLabels: { enabled: true, formatter: function() { return this.y === 1 ? '✅ 验证' : '❌ 未达到'; } }, pointWidth: 20, borderRadius: 3 } },
+  series: [{ name: '验证结果', data: [1, 1, 0, 0], showInLegend: false, colorByPoint: true }],
+  colors: ['#27ae60', '#27ae60', '#c0392b', '#c0392b']
+}));
+</script>
+
+
+</body></html>
